@@ -15,7 +15,7 @@ runs:
   using: composite
     - name: Echo input name
       env: 
-      NAME: ${{ input.name }}
+        NAME: ${{ input.name }}
       run: |
         echo "Hello $NAME!"
         
