@@ -8,19 +8,22 @@ inputs:
 
 outputs: 
   name_length:
-    description: Length of te provided name
+    description: Length of the provided name
     value: ${{ steps.length_calculation.outputs.name_length }}
 
 runs:
-  using: composite
+  using: "composite"
+  steps:
     - name: Echo input name
       env: 
         NAME: ${{ input.name }}
+      shell: bash
       run: |
         echo "Hello $NAME!"
         
     - name: Count length of the name
       id: length_calculation
+      shell: bash
       run: |
         name=${{ inputs.name }}
         length=${#name}
