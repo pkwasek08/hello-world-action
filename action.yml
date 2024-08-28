@@ -16,7 +16,7 @@ runs:
   steps:
     - name: Echo input name
       env: 
-        NAME: ${{ input.name }}
+        NAME: ${{ inputs.name }}
       shell: bash
       run: |
         echo "Hello $NAME!"
@@ -28,4 +28,4 @@ runs:
         name=${{ inputs.name }}
         length=${#name}
 
-        echo "name_length=$length" >> $ GITHUB_OUTPUT
+        echo "name_length=$length" >> $GITHUB_OUTPUT
